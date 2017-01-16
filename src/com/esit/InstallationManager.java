@@ -218,7 +218,8 @@ public class InstallationManager {
                             + "JOIN Property ON Sale.customer = Property.customer "
                             + "JOIN Address ON Property.address = Address.addressId "
                             + "JOIN Customer ON Sale.customer = Customer.customerId "
-                            + "WHERE Installation.status = 'Scheduled' "
+                            + "WHERE Installation.status != 'Cancelled' "
+                            + "AND Installation.status != 'Completed' "
                             + "AND Installation.installer = " + id;
                 } else {
                     _query = "SELECT Installation.installationId, "
@@ -236,7 +237,8 @@ public class InstallationManager {
                             + "JOIN Property ON Sale.customer = Property.customer "
                             + "JOIN Address ON Property.address = Address.addressId "
                             + "JOIN Customer ON Sale.customer = Customer.customerId "
-                            + "WHERE Installation.status = 'Scheduled'";
+                            + "WHERE Installation.status != 'Cancelled' "
+                            + "AND Installation.status != 'Completed' ";
                 }
             }
 
